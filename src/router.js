@@ -1,26 +1,50 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import TaskListPage from "./views/TaskListPage.vue";
+import TaskCreatePage from "./views/TaskCreatePage";
+import SingleTaskPage from "./views/SingleTaskPage";
+import NotFound from "./views/NotFound";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "TaskListPage",
+      component: TaskListPage
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: "/create",
+      name: "TaskCreatePage",
+      component: TaskCreatePage
+    },
+    {
+      path: "/TASK-:id",
+      name: "SingleTaskPage",
+      component: SingleTaskPage
+    },
+    {
+      path: "/404",
+      name: "404",
+      component: NotFound
     }
   ]
 });
+
+// guard if someone tried to go the page which doesn't exist
+router.beforeEach((to, from, next) => {
+  const mathed = router.options.routes.find(el => el.name === to.name);
+
+  if (mathed) {
+    next();
+  } else {
+    next({
+      name: "404"
+    });
+  }
+});
+
+export default router;

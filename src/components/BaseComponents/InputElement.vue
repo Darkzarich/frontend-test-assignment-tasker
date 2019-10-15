@@ -132,7 +132,8 @@ export default {
       outline-color: $firm;
     }
     &_error {
-      border: 1px solid $error;
+      border: 1px solid;
+      outline: $error;
     }
   }
 }

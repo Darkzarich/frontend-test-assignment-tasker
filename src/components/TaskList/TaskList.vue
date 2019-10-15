@@ -1,7 +1,11 @@
 <template>
   <div class="tasks">
     <task-list-filter v-model="filter.status" />
-    <div class="tasks__item" v-for="task in filterTasksStatus" :key="task.id">
+    <div
+      class="tasks__item"
+      v-for="(task, index) in filterTasksStatus"
+      :key="task.id || index"
+    >
       <div class="tasks__item-status" :class="getStatusClass(task.status)">
         {{ getStatusText(task.status) }}
       </div>
@@ -17,13 +21,14 @@
         </router-link>
       </div>
       <div class="tasks__item-description">
-        {{ task.description }}
+        {{ task.description | removeMarkdown }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import removeMarkdown from "remove-markdown";
 import consts from "@/const/const";
 import TaskListFilter from "./TaskListFilter";
 
@@ -51,6 +56,11 @@ export default {
       }
       return this.tasks.filter(el => el.status === this.filter.status);
     }
+  },
+  filters: {
+    removeMarkdown(text) {
+      return removeMarkdown(text);
+    }
   }
 };
 </script>
@@ -65,7 +75,6 @@ export default {
   align-items: center;
   margin-top: 1rem;
   padding: 1rem;
-  width: 100%;
 
   &__item-status {
     display: inline-block;

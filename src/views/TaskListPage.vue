@@ -31,9 +31,8 @@ export default {
     let res = localStorageHandler.getTasks();
 
     if (res) {
-      if (res.length > 0) {
-        this.tasks = res;
-      }
+      console.log(res);
+      this.tasks = res;
     } else {
       console.info("No tasks found. Loaded and set mock data...");
 
@@ -42,17 +41,19 @@ export default {
         {
           id: "0",
           title: "Some test task",
-          dateCreated: "2019-09-11T09:00:12.979Z",
-          dateDeadline: "2019-10-23T09:00:00.979Z",
+          dateCreated: "2019-09-11",
+          dateDeadline: "2019-10-23",
+          tags: ["test1"],
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum itaque, saepe neque veniam minus asperiores eius assumenda rem consequatur accusamus modi laboriosam, praesentium, blanditiis non qui obcaecati eveniet est cupiditate quis voluptate natus. Maiores iusto assumenda magni quibusdam deserunt, laudantium voluptas ratione sunt minima eaque eum, praesentium possimus nihil at.",
           status: 0
         },
         {
           id: "1",
-          title: "Test task",
-          dateCreated: "2019-08-23T14:00:00.979Z",
-          dateDeadline: "2019-11-26T11:00:00.979Z",
+          title: "Test task with tags",
+          tags: ["test1", "test2", "test tag long"],
+          dateCreated: "2019-08-23",
+          dateDeadline: "2019-11-26",
           description:
             "Lorem ipsum dolor sit amet consectetur, . Rerum itaqimus nihil at. Rerum itaqimus nihil at. ",
           status: 1
@@ -60,8 +61,9 @@ export default {
         {
           id: "2",
           title: "Task with a long title",
-          dateCreated: "2019-10-02T10:00:00.979Z",
-          dateDeadline: "2019-12-10T18:00:00.979Z",
+          tags: [],
+          dateCreated: "2019-10-02",
+          dateDeadline: "2019-12-10",
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum itaqimus nihil at. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, ut!",
           status: 0
@@ -69,16 +71,18 @@ export default {
         {
           id: "3",
           title: "Short",
-          dateCreated: "2019-06-11T14:18:12.979Z",
-          dateDeadline: "2019-08-11T14:18:12.979Z",
+          tags: [],
+          dateCreated: "2019-06-11",
+          dateDeadline: "2019-08-11",
           description: "Lorem ipsum dolor sit amet consectetur",
           status: 2
         },
         {
           id: "4",
           title: "Expired task",
-          dateCreated: "2019-10-01T09:00:00.979Z",
-          dateDeadline: "2019-08-15T21:00:00.979Z",
+          tags: [],
+          dateCreated: "2019-10-01",
+          dateDeadline: "2019-08-15",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum itaqimus nihil at. Lorem ipsum dolor sit,  adipisicing elit. Rerum itaqimus nihil at. Lorem ipsum dolor sit",
           status: 0

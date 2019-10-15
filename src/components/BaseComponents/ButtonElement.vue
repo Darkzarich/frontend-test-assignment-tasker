@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import circularLoader from "../../library/svg/animation/circularLoader.vue";
+import circularLoader from "../../library/svg/animations/circularLoader.vue";
 export default {
   components: {
     circularLoader
@@ -27,7 +27,7 @@ export default {
       default: () => {}
     },
     argument: {
-      type: String
+      type: [String, Object]
     },
     disabled: {
       type: [Boolean, String],

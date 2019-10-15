@@ -11,5 +11,6 @@ footer {
   width: 100%;
   bottom: 0;
   background: $header;
+  margin-top: 2rem;
 }
 </style>

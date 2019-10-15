@@ -1,17 +1,22 @@
 <template>
-  <div>
+  <div class="task-filter">
     <select-element @change="setFilter" :list="options" v-model="value" />
+    <router-link class="task-filter__create-new" to="/create">
+      <button-element>New task</button-element>
+    </router-link>
   </div>
 </template>
 
 <script>
 import consts from "@/const/const";
 import SelectElement from "@/components/BaseComponents/SelectElement";
+import ButtonElement from "@/components/BaseComponents/ButtonElement";
 
 export default {
   props: ["value"],
   components: {
-    SelectElement
+    SelectElement,
+    ButtonElement
   },
   data() {
     return {
@@ -47,4 +52,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.task-filter {
+  display: flex;
+  align-items: center;
+  &__create-new {
+    text-decoration: none;
+    .button {
+      width: 6rem;
+    }
+  }
+}
+</style>

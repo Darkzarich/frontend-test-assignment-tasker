@@ -1,34 +1,6 @@
-# frontend-test-assignment-tasker
 
-## Project setup
-```
-npm install
-```
+# Vue.js Organizer
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Frontend test assignment. Organizer made with Vue.js
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Show me what it looks like!](https://dz-tasker.herokuapp.com)
